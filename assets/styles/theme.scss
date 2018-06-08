@@ -4,9 +4,13 @@ body {
   padding-top: 60px;
 }
 
+.btn-style {
+  margin: 10px;
+}
+
 .navbar-custom {
-  color: $white;
   background-color: #3e474e;
+  color: $white;
 }
 
 .brand-custom {
@@ -14,12 +18,9 @@ body {
   font-size: 40px;
 }
 
-.game-board {
-  border: 1px solid $white;
-  height: 50px;
-  margin: 0 auto;
-  max-width: 960px;
-}
+// div {
+//   border: 1px solid $white;
+// }
 
 .box {
   border: 1px solid $white;
@@ -28,6 +29,20 @@ body {
 .gameboard {
   height: auto;
   padding: 25px;
+}
+
+.square {
+  background-color: $square-color;
+  float: left;
+  margin: 1.66%;
+  overflow: overflow;
+  padding-bottom: 25%;
+  position: relative;
+  width: 30%;
+}
+
+.buttons {
+  text-align: center;
 }
 
 .scoreboard {
