@@ -85,10 +85,17 @@ const onClickBoard = function (event) {
 const resetBoard = function (event) {
   event.preventDefault()
   playerTurn = 'X'
-  console.log('this is event', score)
-  // $('.gameboard').removeClass('square-x')
   $('.square').removeClass('square-x')
   $('.square').removeClass('square-o')
+}
+
+// Clears the scoreboard
+const clearScore = function () {
+  score = {
+    'X': 0,
+    'O': 0
+  }
+  console.log(score)
 }
 
 $(() => {
@@ -108,4 +115,5 @@ $(() => {
   $('#box-7').on('click', onClickBoard)
   $('#box-8').on('click', onClickBoard)
   $('#reset-board').on('click', resetBoard)
+  $('#clear-score').on('click', clearScore)
 })
