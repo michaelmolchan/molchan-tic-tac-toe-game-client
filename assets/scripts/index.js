@@ -56,6 +56,16 @@ const gameboard = [
 //   [0, 0, 'X', 0, 'X', 0, 'X', 0, 0],
 //   [0, 0, 'O', 0, 'O', 0, 'O', 0, 0]
 // ]
+// const winCombinations = [
+//   [0, 1, 2],
+//   [3, 4, 5],
+//   [6, 7, 8],
+//   [0, 3, 6],
+//   [1, 4, 7],
+//   [2, 5, 8],
+//   [0, 4, 8],
+//   [2, 4, 6]
+// ]
 
 // Fills cell with 'X' or 'O' depending on whose turn it is, then alternates turn.
 const onClickBoard = function (event) {
@@ -69,6 +79,16 @@ const onClickBoard = function (event) {
     playerTurn = 'X'
     console.log(playerTurn)
   }
+}
+
+// Resets the gameboard
+const resetBoard = function (event) {
+  event.preventDefault()
+  playerTurn = 'X'
+  console.log('this is event', score)
+  // $('.gameboard').removeClass('square-x')
+  $('.square').removeClass('square-x')
+  $('.square').removeClass('square-o')
 }
 
 $(() => {
@@ -87,4 +107,5 @@ $(() => {
   $('#box-6').on('click', onClickBoard)
   $('#box-7').on('click', onClickBoard)
   $('#box-8').on('click', onClickBoard)
+  $('#reset-board').on('click', resetBoard)
 })
