@@ -20,7 +20,16 @@ const playerOne = 'X'
 const playerTwo = 'O'
 
 // Represents whose turn it is
-let turn = 'X'
+let playerTurn = 'X'
+
+// Alternates turn after click
+// const alternate = function () {
+//   if (playerTurn === 'X') {
+//     playerTurn = 'O'
+//   } else if (playerTurn === 'O') {
+//     playerTurn = 'X'
+//   }
+// }
 
 // Represents an empty Gameboard
 const gameboard = [
@@ -30,26 +39,36 @@ const gameboard = [
 ]
 
 // const winCombinations = [
-//   [0, 1, 2],
-//   [3, 4, 5],
-//   [6, 7, 8],
-//   [0, 3, 6],
-//   [1, 4, 7],
-//   [2, 5, 8],
-//   [0, 4, 8],
-//   [2, 4, 6]
+//   ['X', 'X', 'X', 0, 0, 0, 0, 0, 0],
+//   ['O', 'O', 'O', 0, 0, 0, 0, 0, 0],
+//   [0, 0, 0, 'X', 'X', 'X', 0, 0, 0],
+//   [0, 0, 0, 'O', 'O', 'O', 0, 0, 0],
+//   [0, 0, 0, 0, 0, 0, 'X', 'X', 'X'],
+//   [0, 0, 0, 0, 0, 0, 'O', 'O', 'O'],
+//   ['X', 0, 0, 'X', 0, 0, 'X', 0, 0],
+//   ['O', 0, 0, 'O', 0, 0, 'O', 0, 0],
+//   [0, 'X', 0, 0, 'X', 0, 0, 'X', 0],
+//   [0, 'O', 0, 0, 'O', 0, 0, 'O', 0],
+//   [0, 0, 'X', 0, 0, 'X', 0, 0, 'X'],
+//   [0, 0, 'O', 0, 0, 'O', 0, 0, 'O'],
+//   ['X', 0, 0, 0, 'X', 0, 0, 0, 'X'],
+//   ['O', 0, 0, 0, 'O', 0, 0, 0, 'O'],
+//   [0, 0, 'X', 0, 'X', 0, 'X', 0, 0],
+//   [0, 0, 'O', 0, 'O', 0, 'O', 0, 0]
 // ]
 
+// Fills cell with 'X' or 'O' depending on whose turn it is, then alternates turn.
 const onClickBoard = function (event) {
-  console.log('onClickBoard ran', event.target.id)
-  const boxId = event.target.id
-  console.log(boxId)
-  if (turn === 'X') {
-    $(this).toggleClass('square-x')
-  } else {
-    $(this).toggleClass('square-o')
+  console.log('You clicked on ', event.target.id)
+  if (playerTurn === 'X') {
+    $(this).addClass('square-x')
+    playerTurn = 'O'
+    console.log(playerTurn)
+  } else if (playerTurn === 'O') {
+    $(this).addClass('square-o')
+    playerTurn = 'X'
+    console.log(playerTurn)
   }
-  // gameboard[0] = 'X'
 }
 
 $(() => {
