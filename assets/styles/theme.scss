@@ -41,6 +41,32 @@ body {
   width: 30%;
 }
 
+.square-x {
+  background-color: $white;
+  background-image: url('https://i.imgur.com/StEdwyQ.png');
+  background-size: contain;
+  background-size: cover;
+  float: left;
+  margin: 1.66%;
+  overflow: overflow;
+  padding-bottom: 25%;
+  position: relative;
+  width: 30%;
+}
+
+.square-o {
+  background-color: $white;
+  background-image: url('https://i.imgur.com/WXnA4Qd.png');
+  background-size: contain;
+  background-size: cover;
+  float: left;
+  margin: 1.66%;
+  overflow: overflow;
+  padding-bottom: 25%;
+  position: relative;
+  width: 30%;
+}
+
 .buttons {
   text-align: center;
 }
@@ -62,6 +88,14 @@ body {
   & > h3 {
     color: $white;
   }
+}
+
+.modal-title-custom {
+  color: $black;
+}
+
+label {
+  color: $black;
 }
 
 .grey {
