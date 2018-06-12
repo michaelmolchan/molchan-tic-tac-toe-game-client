@@ -96,9 +96,11 @@ const onClickBoard = function (event) {
 // Resets the gameboard
 const resetBoard = function (event) {
   event.preventDefault()
-  playerTurn = 'X'
+  $('.square-x').addClass('square')
   $('.square').removeClass('square-x')
+  $('.square-o').addClass('square')
   $('.square').removeClass('square-o')
+  playerTurn = 'X'
 }
 
 // Clears the scoreboard
