@@ -39,25 +39,27 @@ const gameboard = [
 ]
 
 // Gameboard winning combinations
-const winCombinations = [
-  [gameboard[0], gameboard[1], gameboard[2]],
-  [gameboard[3], gameboard[4], gameboard[5]],
-  [gameboard[6], gameboard[7], gameboard[8]],
-  [gameboard[0], gameboard[3], gameboard[6]],
-  [gameboard[1], gameboard[4], gameboard[7]],
-  [gameboard[2], gameboard[5], gameboard[8]],
-  [gameboard[0], gameboard[4], gameboard[8]],
-  [gameboard[2], gameboard[4], gameboard[6]]
-]
-
+const winCombos = function () {
+  return [
+    [gameboard[0], gameboard[1], gameboard[2]],
+    [gameboard[3], gameboard[4], gameboard[5]],
+    [gameboard[6], gameboard[7], gameboard[8]],
+    [gameboard[0], gameboard[3], gameboard[6]],
+    [gameboard[1], gameboard[4], gameboard[7]],
+    [gameboard[2], gameboard[5], gameboard[8]],
+    [gameboard[0], gameboard[4], gameboard[8]],
+    [gameboard[2], gameboard[4], gameboard[6]]
+  ]
+}
 // Checks the gameboard for a win after each turn
 const checkForWin = function () {
-  for (i = 0; i < winCombinations.length; i++) {
-    if (winCombinations[i] === gameboard) {
-      console.log('We have a winner!')
-    } else {
-      console.log('No winner yet. Keep playing...')
-    }
+  let i
+  for (i = 0; i < winCombos().length; i++) {
+    if (winCombos()[i].join() === 'X,X,X') {
+      console.log('Player One Wins!')
+    } else if (winCombos()[i].join() === 'O,O,O') {
+      console.log('Player Two Wins!')
+    } else {}
   }
 }
 
@@ -65,26 +67,30 @@ const onClickBoard = function (event) {
   event.preventDefault()
   console.log('You clicked on ', event.target.id)
   if (playerTurn === 'X') {
-    // check to see if the cell has a specific class
+    // check to see if the cell has empty cell class (.square), if so replace with class '.square-x'
     if ($(this).hasClass('square')) {
       $(this).removeClass('square')
       $(this).addClass('square-x')
       // Add 'X' to the gameboard array index that represents the cell that was clicked
       gameboard[event.target.id] = playerTurn
       console.log(gameboard)
+      // Check the updated gameboard for win combos
+      checkForWin()
       playerTurn = 'O'
     } else {
       console.log('This cell has been selected')
     }
     console.log(playerTurn)
   } else if (playerTurn === 'O') {
-    // check to see if the cell has a specific class
+    // check to see if the cell has empty cell class (.square), if so replace with class '.square-o'
     if ($(this).hasClass('square')) {
       $(this).removeClass('square')
       $(this).addClass('square-o')
       // Add 'O' to the gameboard array index that represents the cell that was clicked
       gameboard[event.target.id] = playerTurn
       console.log(gameboard)
+      // Check the updated gameboard for win combos
+      checkForWin()
       playerTurn = 'X'
     } else {
       console.log('This cell has been selected')
