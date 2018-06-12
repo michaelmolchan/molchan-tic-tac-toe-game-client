@@ -38,33 +38,16 @@ const gameboard = [
   '', '', ''
 ]
 
-// const winCombinations = [
-//   ['X', 'X', 'X', 0, 0, 0, 0, 0, 0],
-//   ['O', 'O', 'O', 0, 0, 0, 0, 0, 0],
-//   [0, 0, 0, 'X', 'X', 'X', 0, 0, 0],
-//   [0, 0, 0, 'O', 'O', 'O', 0, 0, 0],
-//   [0, 0, 0, 0, 0, 0, 'X', 'X', 'X'],
-//   [0, 0, 0, 0, 0, 0, 'O', 'O', 'O'],
-//   ['X', 0, 0, 'X', 0, 0, 'X', 0, 0],
-//   ['O', 0, 0, 'O', 0, 0, 'O', 0, 0],
-//   [0, 'X', 0, 0, 'X', 0, 0, 'X', 0],
-//   [0, 'O', 0, 0, 'O', 0, 0, 'O', 0],
-//   [0, 0, 'X', 0, 0, 'X', 0, 0, 'X'],
-//   [0, 0, 'O', 0, 0, 'O', 0, 0, 'O'],
-//   ['X', 0, 0, 0, 'X', 0, 0, 0, 'X'],
-//   ['O', 0, 0, 0, 'O', 0, 0, 0, 'O'],
-//   [0, 0, 'X', 0, 'X', 0, 'X', 0, 0],
-//   [0, 0, 'O', 0, 'O', 0, 'O', 0, 0]
-// ]
+// Gameboard winning combinations
 const winCombinations = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
+  [gameboard[0], gameboard[1], gameboard[2]],
+  [gameboard[3], gameboard[4], gameboard[5]],
+  [gameboard[6], gameboard[7], gameboard[8]],
+  [gameboard[0], gameboard[3], gameboard[6]],
+  [gameboard[1], gameboard[4], gameboard[7]],
+  [gameboard[2], gameboard[5], gameboard[8]],
+  [gameboard[0], gameboard[4], gameboard[8]],
+  [gameboard[2], gameboard[4], gameboard[6]]
 ]
 
 // Checks the gameboard for a win after each turn
@@ -86,6 +69,9 @@ const onClickBoard = function (event) {
     if ($(this).hasClass('square')) {
       $(this).removeClass('square')
       $(this).addClass('square-x')
+      // Add 'X' to the gameboard array index that represents the cell that was clicked
+      gameboard[event.target.id] = playerTurn
+      console.log(gameboard)
       playerTurn = 'O'
     } else {
       console.log('This cell has been selected')
@@ -96,6 +82,9 @@ const onClickBoard = function (event) {
     if ($(this).hasClass('square')) {
       $(this).removeClass('square')
       $(this).addClass('square-o')
+      // Add 'O' to the gameboard array index that represents the cell that was clicked
+      gameboard[event.target.id] = playerTurn
+      console.log(gameboard)
       playerTurn = 'X'
     } else {
       console.log('This cell has been selected')
@@ -128,15 +117,15 @@ $(() => {
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
-  $('#box-0').on('click', onClickBoard)
-  $('#box-1').on('click', onClickBoard)
-  $('#box-2').on('click', onClickBoard)
-  $('#box-3').on('click', onClickBoard)
-  $('#box-4').on('click', onClickBoard)
-  $('#box-5').on('click', onClickBoard)
-  $('#box-6').on('click', onClickBoard)
-  $('#box-7').on('click', onClickBoard)
-  $('#box-8').on('click', onClickBoard)
+  $('#0').on('click', onClickBoard)
+  $('#1').on('click', onClickBoard)
+  $('#2').on('click', onClickBoard)
+  $('#3').on('click', onClickBoard)
+  $('#4').on('click', onClickBoard)
+  $('#5').on('click', onClickBoard)
+  $('#6').on('click', onClickBoard)
+  $('#7').on('click', onClickBoard)
+  $('#8').on('click', onClickBoard)
   $('#reset-board').on('click', resetBoard)
   $('#clear-score').on('click', clearScore)
 })
