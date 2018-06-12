@@ -69,13 +69,13 @@ body {
 .scoreboard {
   background-color: $nav-color;
   font-weight: bold;
-  height: 275px;
+  height: 300px;
   padding: 15px;
 
-  & > h1 {
+  & > h2 {
     color: $white;
     // font-family: $font-family-passion-one;
-    font-size: 40px;
+    font-size: 36px;
     text-align: $center-text;
 
     &:hover {
@@ -90,7 +90,14 @@ body {
 
 .winner-alert {
   color: $green;
-  font-size: 38px;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: $center-text;
+}
+
+.game-over-alert {
+  color: $orange;
+  font-size: 14px;
   font-weight: bold;
   text-align: $center-text;
 }
