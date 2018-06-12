@@ -78,13 +78,13 @@ const checkForWin = function () {
   }
 }
 
-// Fills cell with 'X' or 'O' depending on whose turn it is, then alternates turn.
 const onClickBoard = function (event) {
   event.preventDefault()
   console.log('You clicked on ', event.target.id)
   if (playerTurn === 'X') {
     // check to see if the cell has a specific class
-    if (!$(this).hasClass('square-o')) {
+    if ($(this).hasClass('square')) {
+      $(this).removeClass('square')
       $(this).addClass('square-x')
       playerTurn = 'O'
     } else {
@@ -92,7 +92,9 @@ const onClickBoard = function (event) {
     }
     console.log(playerTurn)
   } else if (playerTurn === 'O') {
-    if (!$(this).hasClass('square-x')) {
+    // check to see if the cell has a specific class
+    if ($(this).hasClass('square')) {
+      $(this).removeClass('square')
       $(this).addClass('square-o')
       playerTurn = 'X'
     } else {
