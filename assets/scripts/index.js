@@ -33,9 +33,9 @@ let playerTurn = 'X'
 
 // Represents an empty Gameboard
 const gameboard = [
-  0, 0, 0,
-  0, 0, 0,
-  0, 0, 0
+  '', '', '',
+  '', '', '',
+  '', '', ''
 ]
 
 // const winCombinations = [
@@ -56,27 +56,48 @@ const gameboard = [
 //   [0, 0, 'X', 0, 'X', 0, 'X', 0, 0],
 //   [0, 0, 'O', 0, 'O', 0, 'O', 0, 0]
 // ]
-// const winCombinations = [
-//   [0, 1, 2],
-//   [3, 4, 5],
-//   [6, 7, 8],
-//   [0, 3, 6],
-//   [1, 4, 7],
-//   [2, 5, 8],
-//   [0, 4, 8],
-//   [2, 4, 6]
-// ]
+const winCombinations = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+]
+
+// Checks the gameboard for a win after each turn
+const checkForWin = function () {
+  for (i = 0; i < winCombinations.length; i++) {
+    if (winCombinations[i] === gameboard) {
+      console.log('We have a winner!')
+    } else {
+      console.log('No winner yet. Keep playing...')
+    }
+  }
+}
 
 // Fills cell with 'X' or 'O' depending on whose turn it is, then alternates turn.
 const onClickBoard = function (event) {
+  event.preventDefault()
   console.log('You clicked on ', event.target.id)
   if (playerTurn === 'X') {
-    $(this).addClass('square-x')
-    playerTurn = 'O'
+    // check to see if the cell has a specific class
+    if (!$(this).hasClass('square-o')) {
+      $(this).addClass('square-x')
+      playerTurn = 'O'
+    } else {
+      console.log('This cell has been selected')
+    }
     console.log(playerTurn)
   } else if (playerTurn === 'O') {
-    $(this).addClass('square-o')
-    playerTurn = 'X'
+    if (!$(this).hasClass('square-x')) {
+      $(this).addClass('square-o')
+      playerTurn = 'X'
+    } else {
+      console.log('This cell has been selected')
+    }
     console.log(playerTurn)
   }
 }
