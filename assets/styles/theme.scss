@@ -27,7 +27,7 @@ body {
 }
 
 .gameboard {
-  height: auto;
+  height: 375px;
   padding: 25px;
 }
 
@@ -69,6 +69,7 @@ body {
 
 .buttons {
   text-align: center;
+  padding: 20px;
 }
 
 .scoreboard {
