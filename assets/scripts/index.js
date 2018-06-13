@@ -107,7 +107,7 @@ const onClickBoard = function (event) {
       console.log(playerTurn)
     }
   } else {
-    $('.game-over-alert').html('Click reset board to play again!')
+    $('.game-over-alert').html('&#9757; Click reset board to play again!')
   }
 }
 

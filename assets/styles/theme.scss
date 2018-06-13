@@ -18,10 +18,6 @@ body {
   font-size: 40px;
 }
 
-// .box {
-//   border: 1px solid $white;
-// }
-
 .gameboard {
   height: auto;
   padding: 25px;
@@ -51,7 +47,7 @@ body {
 
 .square-o {
   background-color: $white;
-  background-image: url('https://i.imgur.com/wx2Zbu3.png');
+  background-image: url('https://i.imgur.com/TnJFY2t.png');
   background-size: contain;
   float: left;
   margin: 1.66%;
@@ -80,20 +76,21 @@ body {
 
   & > h2 {
     color: $white;
-    font-size: 36px;
+    font-size: 42px;
     text-align: $center-text;
     text-shadow: 1px 2px 5px $black;
   }
 
   & > h3 {
     color: $white;
+    text-align: $center-text;
     text-shadow: 1px 2px 5px $black;
   }
 }
 
 .winner-alert {
   color: $green;
-  font-size: 26px;
+  font-size: 32px;
   font-weight: bold;
   text-align: $center-text;
   text-shadow: 1px 2px 5px $black;
@@ -101,7 +98,7 @@ body {
 
 .game-over-alert {
   color: $teal;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: bold;
   text-align: $center-text;
   text-shadow: 1px 2px 5px $black;
