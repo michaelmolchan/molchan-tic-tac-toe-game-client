@@ -16,6 +16,7 @@ body {
 .brand-custom {
   color: $white;
   font-size: 40px;
+  font-weight: bold;
 }
 
 .gameboard {
@@ -88,7 +89,7 @@ body {
   }
 }
 
-.winner-alert {
+.game-result {
   color: $green;
   font-size: 32px;
   font-weight: bold;

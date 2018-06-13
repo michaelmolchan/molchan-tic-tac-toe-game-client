@@ -49,21 +49,37 @@ const checkForWin = function () {
     } else if (winCombos()[i].join() === 'O,O,O') {
       console.log('Player Two Wins!')
       winnerO()
-    } else {}
+    } else {
+    }
   }
 }
 
 const winnerX = function () {
   // Add html to div that says 'PLAYER ONE WINS'
-  $('.winner-alert').html('PLAYER ONE WINS!')
+  $('.game-result').html('PLAYER ONE WINS!')
   // Indicates that the game is over
   gameOver = true
-  // Add 1 to playerOne's score
 }
 
 const winnerO = function () {
   // Add html to div that says 'PLAYER ONE WINS'
-  $('.winner-alert').html('PLAYER TWO WINS!')
+  $('.game-result').html('PLAYER TWO WINS!')
+  // Indicates that the game is over
+  gameOver = true
+}
+
+// const checkForTie = function () {
+//   if (!$('.gameboard').contains('.square')) {
+//     console.log('Yes')
+//     tieGame()
+//   } else {
+//     console.log('No')
+//   }
+// }
+
+const tieGame = function () {
+  // Add html to div that says 'PLAYER ONE WINS'
+  $('.game-result').html('TIE GAME!')
   // Indicates that the game is over
   gameOver = true
   // Add 1 to playerOne's score
@@ -126,7 +142,7 @@ const resetBoard = function (event) {
     '', '', ''
   ]
   $('.game-over-alert').html('')
-  $('.winner-alert').html('')
+  $('.game-result').html('')
 }
 
 $(() => {
