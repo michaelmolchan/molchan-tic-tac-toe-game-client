@@ -1,7 +1,7 @@
 body {
   background-color: $background-color;
   color: $white;
-  padding-top: 60px;
+  padding-top: 70px;
 }
 
 .btn-style {
@@ -18,9 +18,9 @@ body {
   font-size: 40px;
 }
 
-.box {
-  border: 1px solid $white;
-}
+// .box {
+//   border: 1px solid $white;
+// }
 
 .gameboard {
   height: auto;
@@ -39,7 +39,7 @@ body {
 
 .square-x {
   background-color: $white;
-  background-image: url('https://i.imgur.com/StEdwyQ.png');
+  background-image: url('https://i.imgur.com/72U207r.png');
   background-size: contain;
   float: left;
   margin: 1.66%;
@@ -51,7 +51,7 @@ body {
 
 .square-o {
   background-color: $white;
-  background-image: url('https://i.imgur.com/WXnA4Qd.png');
+  background-image: url('https://i.imgur.com/wx2Zbu3.png');
   background-size: contain;
   float: left;
   margin: 1.66%;
@@ -62,44 +62,49 @@ body {
 }
 
 .buttons {
-  text-align: center;
   padding: 20px;
+  text-align: center;
+}
+
+.btn-custom {
+  background-color: $teal;
 }
 
 .scoreboard {
   background-color: $nav-color;
+  border: 7px solid $white;
   font-weight: bold;
-  height: 300px;
+  height: auto;
   padding: 15px;
+  margin-top: 34px;
 
   & > h2 {
     color: $white;
-    // font-family: $font-family-passion-one;
     font-size: 36px;
     text-align: $center-text;
-
-    &:hover {
-      opacity: 0.5;
-    }
+    text-shadow: 1px 2px 5px $black;
   }
 
   & > h3 {
     color: $white;
+    text-shadow: 1px 2px 5px $black;
   }
 }
 
 .winner-alert {
   color: $green;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
   text-align: $center-text;
+  text-shadow: 1px 2px 5px $black;
 }
 
 .game-over-alert {
-  color: $orange;
-  font-size: 14px;
+  color: $teal;
+  font-size: 17px;
   font-weight: bold;
   text-align: $center-text;
+  text-shadow: 1px 2px 5px $black;
 }
 
 .modal-title-custom {
