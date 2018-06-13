@@ -8,12 +8,6 @@ const authEvents = require('./auth/events')
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
-// Keeps track of the score
-// let score = {
-//   'X': 0,
-//   'O': 0
-// }
-
 // Assigns 'X' and 'O' to players
 const playerOne = 'X'
 
@@ -22,17 +16,8 @@ const playerTwo = 'O'
 // Represents whose turn it is
 let playerTurn = 'X'
 
-// Alternates turn after click
-// const alternate = function () {
-//   if (playerTurn === 'X') {
-//     playerTurn = 'O'
-//   } else if (playerTurn === 'O') {
-//     playerTurn = 'X'
-//   }
-// }
-
 // Represents an empty Gameboard
-const gameboard = [
+let gameboard = [
   '', '', '',
   '', '', '',
   '', '', ''
@@ -70,7 +55,7 @@ const checkForWin = function () {
 
 const winnerX = function () {
   // Add html to div that says 'PLAYER ONE WINS'
-  $('.winner-alert').append('PLAYER ONE WINS!')
+  $('.winner-alert').html('PLAYER ONE WINS!')
   // Indicates that the game is over
   gameOver = true
   // Add 1 to playerOne's score
@@ -78,12 +63,13 @@ const winnerX = function () {
 
 const winnerO = function () {
   // Add html to div that says 'PLAYER ONE WINS'
-  $('.winner-alert').append('PLAYER TWO WINS!')
+  $('.winner-alert').html('PLAYER TWO WINS!')
   // Indicates that the game is over
   gameOver = true
   // Add 1 to playerOne's score
 }
 
+// When the board is clicked on by a user
 const onClickBoard = function (event) {
   event.preventDefault()
   console.log('You clicked on ', event.target.id)
@@ -121,7 +107,7 @@ const onClickBoard = function (event) {
       console.log(playerTurn)
     }
   } else {
-    $('.game-over-alert').html('Click Reset Board to start a new game!')
+    $('.game-over-alert').html('Click reset board to play again!')
   }
 }
 
@@ -133,16 +119,15 @@ const resetBoard = function (event) {
   $('.square-o').addClass('square')
   $('.square').removeClass('square-o')
   playerTurn = 'X'
+  gameOver = false
+  gameboard = [
+    '', '', '',
+    '', '', '',
+    '', '', ''
+  ]
+  $('.game-over-alert').html('')
+  $('.winner-alert').html('')
 }
-
-// Clears the scoreboard
-// const clearScore = function () {
-//   score = {
-//     'X': 0,
-//     'O': 0
-//   }
-//   console.log(score)
-// }
 
 $(() => {
   // your JS code goes here
@@ -160,6 +145,6 @@ $(() => {
   $('#6').on('click', onClickBoard)
   $('#7').on('click', onClickBoard)
   $('#8').on('click', onClickBoard)
-  $('#reset-board').on('click', resetBoard)
-  // $('#clear-score').on('click', clearScore)
+  $('#reset-board-1').on('click', resetBoard)
+  $('#reset-board-2').on('click', resetBoard)
 })
