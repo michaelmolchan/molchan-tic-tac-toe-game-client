@@ -8,13 +8,11 @@ const authEvents = require('./auth/events')
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
-// Assigns 'X' and 'O' to players
-const playerOne = 'X'
-
-const playerTwo = 'O'
-
-// Represents whose turn it is. Player One is set to X
+// Represents whose turn it is. Player One is set to X. Player One starts the game
 let playerTurn = 'X'
+
+// Indicates that the game is not over
+let gameOver = false
 
 // Represents an empty Gameboard
 let gameboard = [
@@ -22,12 +20,6 @@ let gameboard = [
   '', '', '',
   '', '', ''
 ]
-
-// let gameboard = [
-//   'X', 'O', 'X',
-//   'X', 'X', 'O',
-//   'O', 'X', 'O'
-// ]
 
 // Gameboard winning combinations
 const winCombos = function () {
@@ -43,8 +35,6 @@ const winCombos = function () {
   ]
 }
 
-let gameOver = false
-
 // Checks the gameboard for a win after each turn
 const checkForWin = function () {
   let i
@@ -55,25 +45,10 @@ const checkForWin = function () {
     } else if (winCombos()[i].join() === 'O,O,O') {
       console.log('Player Two Wins!')
       winnerO()
-    } else {
+    } else if (gameOver === false) {
+      checkForTie()
     }
   }
-}
-
-// Provides message that Player One has won the game
-const winnerX = function () {
-  // Add html to div that says 'PLAYER ONE WINS'
-  $('.game-result').html('PLAYER ONE WINS!')
-  // Indicates that the game is over
-  gameOver = true
-}
-
-// Provides message that Player Two has won the game
-const winnerO = function () {
-  // Add html to div that says 'PLAYER ONE WINS'
-  $('.game-result').html('PLAYER TWO WINS!')
-  // Indicates that the game is over
-  gameOver = true
 }
 
 // Checks the gameboard for a Tie Game
@@ -89,22 +64,37 @@ const checkForTie = function () {
   }
 }
 
+// Provides message that Player One (X) has won the game
+const winnerX = function () {
+  // Add html to div that says "PLAYER ONE WINS"
+  $('.game-result').html('PLAYER ONE WINS!')
+  // Indicates that the game is over
+  gameOver = true
+}
+
+// Provides message that Player Two (O) has won the game
+const winnerO = function () {
+  // Add html to div that says "PLAYER TWO WINS"
+  $('.game-result').html('PLAYER TWO WINS!')
+  // Indicates that the game is over
+  gameOver = true
+}
+
+// Provides message that game is a tie
 const tieGame = function () {
-  // Add html to div that says 'PLAYER ONE WINS'
+  // Add html to div that says "TIE GAME!"
   $('.game-result').html('TIE GAME!')
   // Indicates that the game is over
   gameOver = true
-  // Add 1 to playerOne's score
 }
 
 // When the board is clicked on by a user
 const onClickBoard = function (event) {
   event.preventDefault()
-  console.log('You clicked on ', event.target.id)
   // if a winner has not been identified, run this code
   if (gameOver === false) {
     if (playerTurn === 'X') {
-      // check to see if the cell has empty cell class (.square), if so replace with class '.square-x'
+      // checks to see if the cell has empty cell class (.square), if so replace with class '.square-x'
       if ($(this).hasClass('square')) {
         $(this).removeClass('square')
         $(this).addClass('square-x')
@@ -113,12 +103,11 @@ const onClickBoard = function (event) {
         console.log(gameboard)
         // Checks the updated gameboard for win combos
         checkForWin()
-        checkForTie()
+        // Switches turns
         playerTurn = 'O'
       } else {
         console.log('This cell has been selected')
       }
-      console.log(playerTurn)
     } else if (playerTurn === 'O') {
       // checks to see if the cell has empty cell class (.square), if so replace with class '.square-o'
       if ($(this).hasClass('square')) {
@@ -129,21 +118,22 @@ const onClickBoard = function (event) {
         console.log(gameboard)
         // Checks the updated gameboard for win combos
         checkForWin()
-        checkForTie()
+        // Switches turns
         playerTurn = 'X'
       } else {
         console.log('This cell has been selected')
       }
-      console.log(playerTurn)
     }
   } else {
+    // Notifies the user that the game is over. Click reset board to play again
     $('.game-over-alert').html('&#9757; Click reset board to play again!')
   }
 }
 
-// Resets the gameboard, set player turn to 'X'
+// Resets the game
 const resetBoard = function (event) {
   event.preventDefault()
+  // Clears the board
   $('.square-x').addClass('square')
   $('.square').removeClass('square-x')
   $('.square-o').addClass('square')
