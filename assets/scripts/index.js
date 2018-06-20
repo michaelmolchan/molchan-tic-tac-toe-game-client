@@ -13,7 +13,7 @@ const playerOne = 'X'
 
 const playerTwo = 'O'
 
-// Represents whose turn it is
+// Represents whose turn it is. Player One is set to X
 let playerTurn = 'X'
 
 // Represents an empty Gameboard
@@ -22,6 +22,12 @@ let gameboard = [
   '', '', '',
   '', '', ''
 ]
+
+// let gameboard = [
+//   'X', 'O', 'X',
+//   'X', 'X', 'O',
+//   'O', 'X', 'O'
+// ]
 
 // Gameboard winning combinations
 const winCombos = function () {
@@ -54,6 +60,7 @@ const checkForWin = function () {
   }
 }
 
+// Provides message that Player One has won the game
 const winnerX = function () {
   // Add html to div that says 'PLAYER ONE WINS'
   $('.game-result').html('PLAYER ONE WINS!')
@@ -61,6 +68,7 @@ const winnerX = function () {
   gameOver = true
 }
 
+// Provides message that Player Two has won the game
 const winnerO = function () {
   // Add html to div that says 'PLAYER ONE WINS'
   $('.game-result').html('PLAYER TWO WINS!')
@@ -68,14 +76,18 @@ const winnerO = function () {
   gameOver = true
 }
 
-// const checkForTie = function () {
-//   if (!$('.gameboard').contains('.square')) {
-//     console.log('Yes')
-//     tieGame()
-//   } else {
-//     console.log('No')
-//   }
-// }
+// Checks the gameboard for a Tie Game
+const checkForTie = function () {
+  let tie = true
+  for (let i = 0; i < gameboard.length; i++) {
+    if (gameboard[i] === '') {
+      tie = false
+    }
+  }
+  if (tie === true) {
+    tieGame()
+  }
+}
 
 const tieGame = function () {
   // Add html to div that says 'PLAYER ONE WINS'
@@ -101,6 +113,7 @@ const onClickBoard = function (event) {
         console.log(gameboard)
         // Checks the updated gameboard for win combos
         checkForWin()
+        checkForTie()
         playerTurn = 'O'
       } else {
         console.log('This cell has been selected')
@@ -116,6 +129,7 @@ const onClickBoard = function (event) {
         console.log(gameboard)
         // Checks the updated gameboard for win combos
         checkForWin()
+        checkForTie()
         playerTurn = 'X'
       } else {
         console.log('This cell has been selected')
