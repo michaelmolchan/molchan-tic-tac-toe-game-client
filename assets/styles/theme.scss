@@ -9,8 +9,9 @@ body {
 }
 
 .navbar-custom {
-  background-color: #3e474e;
+  background-color: $nav-color;
   color: $white;
+  height: 55px;
 }
 
 .brand-custom {

@@ -16,7 +16,6 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('You have successfully signed in!')
 
   const data = getFormFields(event.target)
 
@@ -27,7 +26,6 @@ const onSignIn = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('Your password has been changed!')
 
   const data = getFormFields(event.target)
   authApi.changePassword(data)

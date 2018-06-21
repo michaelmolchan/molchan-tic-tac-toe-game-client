@@ -150,6 +150,10 @@ const resetBoard = function (event) {
 }
 
 $(() => {
+  // hiden elements
+  $(document).ready(function () {
+    $('#sign-out').hide()
+  })
   // your JS code goes here
   // $('#someIdOfTheThingImOn').on('action, callback')
   $('#sign-up-form').on('submit', authEvents.onSignUp)
