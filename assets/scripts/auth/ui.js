@@ -13,6 +13,7 @@ const signUpError = function (signUpError) {
 const signInSuccess = function (signInResponse) {
   console.log('response is ', signInResponse)
   store.user = signInResponse.user
+  $('#change-password').show()
   $('#sign-out').show()
 }
 
