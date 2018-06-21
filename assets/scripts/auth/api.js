@@ -2,7 +2,7 @@
 const store = require('../store')
 const config = require('../config')
 
-const addPlayer = function (data) {
+const signUp = function (data) {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-up',
@@ -43,7 +43,7 @@ const signOut = function () {
 }
 
 module.exports = {
-  addPlayer,
+  signUp,
   signIn,
   changePassword,
   signOut

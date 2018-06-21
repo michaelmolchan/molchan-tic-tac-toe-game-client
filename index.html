@@ -24,7 +24,7 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li data-toggle="modal" data-target="#addPlayerModal"><a href="#" ><span class="glyphicon glyphicon-plus"></span> Add Player</a></li>
+              <li data-toggle="modal" data-target="#signUpModal"><a href="#" ><span class="glyphicon glyphicon-plus"></span> Sign Up</a></li>
               <li data-toggle="modal" data-target="#signInModal"><a href="#" ><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
               <li data-toggle="modal" data-target="#changePasswordModal"><a href="#" >Change Password</a></li>
             </ul>
@@ -106,18 +106,18 @@
 
       <!-- MODALS -->
 
-      <!-- Add Player Modal -->
-      <div class="modal fade" id="addPlayerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <!-- Sign Up Modal -->
+      <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h2 class="modal-title-custom" id="exampleModalLabel">Add Player</h2>
+              <h2 class="modal-title-custom" id="exampleModalLabel">Sign Up</h2>
             </div>
             <div class="modal-body">
-              <form id="add-player-form">
+              <form id="sign-up-form">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
                   <input name="credentials[email]" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
@@ -132,7 +132,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-success">Add Player</button>
+                  <button type="submit" class="btn btn-success">Sign Up</button>
                 </div>
               </form>
             </div>
