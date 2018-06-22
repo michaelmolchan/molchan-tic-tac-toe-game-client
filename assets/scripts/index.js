@@ -90,6 +90,8 @@ const tieGame = function () {
 
 // When the board is clicked on by a user
 const onClickBoard = function (event) {
+  // Displays reset board buttons
+  $('#reset-board-2').show()
   event.preventDefault()
   // if a winner has not been identified, run this code
   if (gameOver === false) {
@@ -154,6 +156,8 @@ $(() => {
   $(document).ready(function () {
     $('#sign-out').hide()
     $('#change-password').hide()
+    $('#reset-board-2').hide()
+    $('.game').hide()
   })
   // your JS code goes here
   // $('#someIdOfTheThingImOn').on('action, callback')

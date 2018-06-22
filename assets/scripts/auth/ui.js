@@ -13,8 +13,11 @@ const signUpError = function (signUpError) {
 const signInSuccess = function (signInResponse) {
   console.log('response is ', signInResponse)
   store.user = signInResponse.user
+  $('.nav-sign-in').hide()
+  $('.sign-in').hide()
   $('#change-password').show()
   $('#sign-out').show()
+  $('.game').show()
 }
 
 const signInError = function (signInError) {

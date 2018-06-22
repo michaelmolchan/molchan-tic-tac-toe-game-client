@@ -4,6 +4,27 @@ body {
   padding-top: 70px;
 }
 
+.sign-in-content {
+  margin: 0 auto;
+  width: 95%;
+  background-color: $nav-color;
+  border: 7px solid $white;
+  padding: 20px;
+
+  & > h2 {
+    color: $white;
+    font-size: 42px;
+    text-align: $center-text;
+    text-shadow: 1px 2px 5px $black;
+  }
+
+  & > h3 {
+    color: $white;
+    text-align: $center-text;
+    text-shadow: 1px 2px 5px $black;
+  }
+}
+
 .btn-style {
   margin: 10px;
 }
@@ -68,13 +89,19 @@ body {
   background-color: $teal;
 }
 
+.btn-sign-in {
+  background-color: $teal;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
 .scoreboard {
   background-color: $nav-color;
   border: 7px solid $white;
   font-weight: bold;
   height: auto;
-  padding: 15px;
   margin-top: 34px;
+  padding: 15px;
 
   & > h2 {
     color: $white;

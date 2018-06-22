@@ -23,7 +23,7 @@
             <a class="navbar-brand brand-custom" href="#">XO</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav nav-sign-in">
               <li data-toggle="modal" data-target="#signUpModal"><a href="#" ><span class="glyphicon glyphicon-plus"></span> Sign Up</a></li>
               <li data-toggle="modal" data-target="#signInModal"><a href="#" ><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
             </ul>
@@ -35,7 +35,22 @@
         </div>
       </nav>
 
-      <div class="row">
+      <!--SIGN UP/IN CONTENT - SHOWS ON LOAD & HIDDEN ON SIGN IN -->
+
+      <div class="container text-center sign-in">
+        <div class="col-sm-12 content">
+          <div class="text-left sign-in-content">
+            <img width="150px" src="https://i.imgur.com/TnJFY2t.png">
+            <h2>Welcome to Tic-Tac-Toe!</h2>
+            <h3>Register a new player and sign in below to start a new game!<h3>
+              <button type="button" class="btn btn-sign-in btn-lg" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-plus"></span> Sign Up</button>
+              <button type="button" class="btn btn-sign-in btn-lg" data-toggle="modal" data-target="#signInModal"><span class="glyphicon glyphicon-user"></span> Sign In</button>
+          </div>
+        </div>
+      </div>
+
+      <!--GAMEBOARD AND SCOREBOARD CONTENT - HIDDEN ON LOAD & SHOWS ON SIGN IN -->
+      <div class="row game">
 
         <!-- Left Column -->
         <div class="col-md-6 col-sm-6 box teal">
