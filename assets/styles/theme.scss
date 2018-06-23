@@ -92,14 +92,15 @@ body {
   text-align: center;
 }
 
-.btn-custom {
+.btn-center {
+  margin: auto;
+  display: block;
   text-align: center;
 }
 
-.btn-sign-in {
-  background-color: $teal;
-  width: 200px;
-  margin-bottom: 10px;
+.btn-custom {
+  width: 225px;
+  margin: 20px 10px 5px 10px;
 }
 
 .scoreboard {
