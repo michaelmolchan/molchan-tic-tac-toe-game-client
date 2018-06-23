@@ -158,6 +158,13 @@ $(() => {
     $('#change-password').hide()
     $('#reset-board-2').hide()
     $('.game').hide()
+    $('.start-game').hide()
+    $('#sign-up-error').hide()
+    $('#sign-in-error').hide()
+    $('#change-pw-error').hide()
+    $('#sign-in-message').hide()
+    $('#change-pw-success-message').hide()
+    $('#sign-out-success-message').hide()
   })
   // your JS code goes here
   // $('#someIdOfTheThingImOn').on('action, callback')

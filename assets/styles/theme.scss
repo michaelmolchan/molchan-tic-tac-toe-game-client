@@ -25,6 +25,13 @@ body {
   }
 }
 
+.xo-logo {
+  width: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .btn-style {
   margin: 10px;
 }
@@ -86,7 +93,7 @@ body {
 }
 
 .btn-custom {
-  background-color: $teal;
+  text-align: center;
 }
 
 .btn-sign-in {
@@ -147,4 +154,12 @@ label {
 
 .teal {
   background-color: $teal;
+}
+
+.green {
+  color: $green;
+}
+
+.red {
+  color: $red;
 }

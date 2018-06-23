@@ -24,7 +24,7 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav nav-sign-in">
-              <li data-toggle="modal" data-target="#signUpModal"><a href="#" ><span class="glyphicon glyphicon-plus"></span> Sign Up</a></li>
+              <li data-toggle="modal" data-target="#signUpModal"><a href="#" ><span class="glyphicon glyphicon-plus"></span> Add Player</a></li>
               <li data-toggle="modal" data-target="#signInModal"><a href="#" ><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -40,11 +40,26 @@
       <div class="container text-center sign-in">
         <div class="col-sm-12 content">
           <div class="text-left sign-in-content">
-            <img width="150px" src="https://i.imgur.com/TnJFY2t.png">
+            <img class="xo-logo" src="https://i.imgur.com/MiQr958.png">
             <h2>Welcome to Tic-Tac-Toe!</h2>
-            <h3>Register a new player and sign in below to start a new game!<h3>
-              <button type="button" class="btn btn-sign-in btn-lg" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-plus"></span> Sign Up</button>
-              <button type="button" class="btn btn-sign-in btn-lg" data-toggle="modal" data-target="#signInModal"><span class="glyphicon glyphicon-user"></span> Sign In</button>
+            <h3 id="sign-out-success-message"><span class="green">You successfully signed out</span></h3>
+            <h3 id="sign-up-message">Add player to begin your Tic-Tac-Toe experience!</h3>
+            <h3 id="sign-in-message"><span class="green">Player has been added!</span> Sign in to play</h3>
+              <button type="button" class="btn btn-success btn-lg btn-custom" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-plus"></span> Add Player</button>
+              <button type="button" class="btn btn-info btn-lg btn-custom" data-toggle="modal" data-target="#signInModal"><span class="glyphicon glyphicon-user"></span> Sign In</button>
+          </div>
+        </div>
+      </div>
+
+      <!--START GAME MESSAGE - SHOWS ON SUCCESSFUL SIGN IN -->
+
+      <div class="container text-center start-game">
+        <div class="col-sm-12 content">
+          <div class="text-left sign-in-content">
+            <img class="xo-logo" src="https://i.imgur.com/MiQr958.png">
+            <h2 id="sign-in-success-message">Sign in successful!</h2>
+            <h3 id="change-pw-success-message">Your password has been updated!</h3>
+              <button type="button" class="btn btn-success btn-lg btn-custom" data-toggle="modal" data-target="#signUpModal"> Start New Game</button>
           </div>
         </div>
       </div>
@@ -121,7 +136,7 @@
 
       <!-- MODALS -->
 
-      <!-- Sign Up Modal -->
+      <!-- Add player Modal -->
       <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -129,11 +144,14 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <h2 class="modal-title-custom" id="exampleModalLabel">Sign Up</h2>
+              <h2 class="modal-title-custom" id="exampleModalLabel">Add Player</h2>
             </div>
             <div class="modal-body">
               <form id="sign-up-form">
                 <div class="form-group">
+                  <div id="sign-up-error" class="alert alert-danger">
+                    <strong>Unable to add player!</strong> Please try again!
+                  </div>
                   <label for="exampleInputEmail1">Email address</label>
                   <input name="credentials[email]" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
@@ -147,7 +165,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-success">Sign Up</button>
+                  <button type="submit" class="btn btn-success">Add Player</button>
                 </div>
               </form>
             </div>
@@ -156,6 +174,22 @@
       </div>
 
       <!-- Sign In Modal -->
+      <div class="modal fade" id="signInSuccessModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h2 class="modal-title-custom" id="exampleModalLabel">Sign In</h2>
+            </div>
+            <div class="modal-body">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -168,6 +202,9 @@
             <div class="modal-body">
               <form id="sign-in-form">
                 <div class="form-group">
+                  <div id="sign-in-error" class="alert alert-danger">
+                    <strong>Unable to sign in!</strong> Please try again!
+                  </div>
                   <label for="exampleInputEmail1">Email address</label>
                   <input name="credentials[email]" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
@@ -198,6 +235,9 @@
             <div class="modal-body">
               <form id="change-password-form">
                 <div class="form-group">
+                  <div id="change-pw-error" class="alert alert-danger">
+                    <strong>Change password failed!</strong> Please try again!
+                  </div>
                   <label for="exampleInputEmail1">Old Password</label>
                   <input name="passwords[old]" type="password" class="form-control" aria-describedby="emailHelp" placeholder="Old Password">
                 </div>
