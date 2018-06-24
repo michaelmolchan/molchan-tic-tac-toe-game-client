@@ -60,6 +60,17 @@ const signOutError = function (signOutError) {
   console.log('something went wrong. Here\'s your error: ', signOutError)
 }
 
+const createNewGameSuccess = function (createNewGameResponse) {
+  console.log('response is ', createNewGameResponse)
+  store.game = createNewGameResponse.game
+  $('.game').show()
+  $('.start-game').hide()
+}
+
+const createNewGameError = function (createNewGameError) {
+  console.log('something went wrong. Here\'s your error: ', createNewGameError)
+}
+
 module.exports = {
   signUpSuccess,
   signUpError,
@@ -68,5 +79,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordError,
   signOutSuccess,
-  signOutError
+  signOutError,
+  createNewGameSuccess,
+  createNewGameError
 }

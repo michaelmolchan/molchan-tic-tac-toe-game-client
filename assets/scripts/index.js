@@ -3,6 +3,7 @@
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 const authEvents = require('./auth/events')
+const authApi = require('./auth/api')
 // const themeStyles = require('../styles/theme.scss')
 
 // use require without a reference to ensure a file is bundled
@@ -105,6 +106,7 @@ const onClickBoard = function (event) {
         console.log(gameboard)
         // Checks the updated gameboard for win combos
         checkForWin()
+        authApi.updateGame(event.target.id, playerTurn, gameOver)
         // Switches turns
         playerTurn = 'O'
       } else {
@@ -120,6 +122,7 @@ const onClickBoard = function (event) {
         console.log(gameboard)
         // Checks the updated gameboard for win combos
         checkForWin()
+        authApi.updateGame(event.target.id, playerTurn, gameOver)
         // Switches turns
         playerTurn = 'X'
       } else {
@@ -183,4 +186,6 @@ $(() => {
   $('#8').on('click', onClickBoard)
   $('#reset-board-1').on('click', resetBoard)
   $('#reset-board-2').on('click', resetBoard)
+  $('#start-new-game').on('click', authEvents.onCreateNewGame)
+  $('#reset-board-2').on('click', authEvents.onCreateNewGame)
 })
