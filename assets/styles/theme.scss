@@ -5,11 +5,11 @@ body {
 }
 
 .sign-in-content {
-  margin: 0 auto;
-  width: 95%;
   background-color: $nav-color;
   border: 7px solid $white;
+  margin: 0 auto;
   padding: 20px;
+  width: 95%;
 
   & > h2 {
     color: $white;
@@ -26,10 +26,10 @@ body {
 }
 
 .xo-logo {
-  width: 250px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 250px;
 }
 
 .btn-style {
@@ -93,14 +93,14 @@ body {
 }
 
 .btn-center {
-  margin: auto;
   display: block;
+  margin: auto;
   text-align: center;
 }
 
 .btn-custom {
-  width: 225px;
   margin: 20px 10px 5px 10px;
+  width: 225px;
 }
 
 .scoreboard {

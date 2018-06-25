@@ -19,9 +19,6 @@ const signIn = function (data) {
 }
 
 const changePassword = function (data) {
-  console.log('data is ', data)
-  console.log('store is ', store)
-  console.log('token is ', store.user.token)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + 'change-password',
@@ -53,8 +50,6 @@ const createNewGame = function (data) {
 }
 
 const updateGame = function (index, value, over) {
-  console.log('store is ', store.game)
-  console.log(index, value, over)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + 'games/' + store.game.id,

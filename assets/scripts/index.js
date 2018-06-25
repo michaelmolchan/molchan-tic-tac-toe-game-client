@@ -41,10 +41,8 @@ const checkForWin = function () {
   let i
   for (i = 0; i < winCombos().length; i++) {
     if (winCombos()[i].join() === 'X,X,X') {
-      console.log('Player One Wins!')
       winnerX()
     } else if (winCombos()[i].join() === 'O,O,O') {
-      console.log('Player Two Wins!')
       winnerO()
     } else if (gameOver === false) {
       checkForTie()
@@ -92,7 +90,7 @@ const tieGame = function () {
 // When the board is clicked on by a user
 const onClickBoard = function (event) {
   // Displays reset board buttons
-  $('#reset-board-2').show()
+  $('#reset-board').show()
   event.preventDefault()
   // if a winner has not been identified, run this code
   if (gameOver === false) {
@@ -103,15 +101,12 @@ const onClickBoard = function (event) {
         $(this).addClass('square-x')
         // Adds 'X' to the gameboard array index that represents the cell that was clicked
         gameboard[event.target.id] = playerTurn
-        console.log(gameboard)
         // Checks the updated gameboard for win combos
         checkForWin()
         authApi.updateGame(event.target.id, playerTurn, gameOver)
         // Switches turns
         playerTurn = 'O'
-      } else {
-        console.log('This cell has been selected')
-      }
+      } else {}
     } else if (playerTurn === 'O') {
       // checks to see if the cell has empty cell class (.square), if so replace with class '.square-o'
       if ($(this).hasClass('square')) {
@@ -119,15 +114,12 @@ const onClickBoard = function (event) {
         $(this).addClass('square-o')
         // Adds 'O' to the gameboard array index that represents the cell that was clicked
         gameboard[event.target.id] = playerTurn
-        console.log(gameboard)
         // Checks the updated gameboard for win combos
         checkForWin()
         authApi.updateGame(event.target.id, playerTurn, gameOver)
         // Switches turns
         playerTurn = 'X'
-      } else {
-        console.log('This cell has been selected')
-      }
+      } else {}
     }
   } else {
     // Notifies the user that the game is over. Click reset board to play again
@@ -159,7 +151,7 @@ $(() => {
   $(document).ready(function () {
     $('#sign-out').hide()
     $('#change-password').hide()
-    $('#reset-board-2').hide()
+    $('#reset-board').hide()
     $('.game').hide()
     $('.start-game').hide()
     $('#sign-up-error').hide()
@@ -175,6 +167,7 @@ $(() => {
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
+  $('#sign-out').on('click', resetBoard)
   $('#0').on('click', onClickBoard)
   $('#1').on('click', onClickBoard)
   $('#2').on('click', onClickBoard)
@@ -189,7 +182,5 @@ $(() => {
   $('#start-new-game-2').on('click', authEvents.onCreateNewGame)
   $('#start-new-game-2').on('click', resetBoard)
   $('#reset-board').on('click', authEvents.onCreateNewGame)
-  // $('#start-new-game-1').on('click', authEvents.onGetGames)
-  // $('#start-new-game-2').on('click', authEvents.onGetGames)
   $('#get-game-info').on('click', authEvents.onGetGameInfo)
 })

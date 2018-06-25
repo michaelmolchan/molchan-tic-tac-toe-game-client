@@ -3,22 +3,21 @@
 const store = require('../store')
 
 const signUpSuccess = function (signUpResponse) {
-  console.log('Player Added! ', signUpResponse)
   $('#signUpModal').modal('hide')
   $('#sign-up-message').hide()
   $('#sign-in-message').show()
   $('#sign-up-form')[0].reset()
   $('#sign-up-error').hide()
+  $('#sign-out-success-message').hide()
 }
 
 const signUpError = function (signUpError) {
-  console.log('There was an error adding a player: ', signUpError)
   $('#sign-up-error').show()
   $('#sign-up-form')[0].reset()
+  $('#sign-out-success-message').hide()
 }
 
 const signInSuccess = function (signInResponse) {
-  console.log('response is ', signInResponse)
   store.user = signInResponse.user
   $('#signInModal').modal('hide')
   $('.sign-in').hide()
@@ -27,50 +26,62 @@ const signInSuccess = function (signInResponse) {
   $('#change-password').show()
   $('#sign-out').show()
   $('#player-email').html(store.user.email)
-  // $('#games-played-info').html(store.playedGames.games.length)
+  $('#sign-out-success-message').hide()
+  $('#sign-in-error').hide()
+  $('#sign-up-error').hide()
+  $('#sign-in-success-message').show()
 }
 
 const signInError = function (signInError) {
-  console.log('Error in sign in is ', signInError)
   $('#sign-in-error').show()
   $('#sign-in-form')[0].reset()
+  $('#sign-out-success-message').hide()
 }
 
 const changePasswordSuccess = function (changePasswordResponse) {
-  console.log('changePasswordResponse is ', changePasswordResponse)
-  $('#changePasswordModal').modal('hide')
   $('#change-password-form')[0].reset()
   $('#sign-in-success-message').hide()
+  $('#change-pw-error').hide()
   $('#change-pw-success-message').show()
 }
 
 const changePasswordError = function (changePasswordError) {
-  console.log('Error in change password is ', changePasswordError)
+  $('#change-pw-success-message').hide()
   $('#change-pw-error').show()
   $('#change-password-form')[0].reset()
 }
 
 const signOutSuccess = function (signOutResponse) {
-  console.log('you were successfully signed out')
   delete store.user
-  console.log('store after sign out is ', store)
+  $('.game').hide()
+  $('#sign-up-message').show()
   $('#sign-out-success-message').show()
+  $('.sign-in').show()
+  $('.start-game').hide()
+  $('.nav-sign-in').show()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#sign-in-message').hide()
+  $('#sign-in-form')[0].reset()
+  $('#change-pw-error').hide()
+  $('#change-pw-success-message').hide()
 }
 
 const signOutError = function (signOutError) {
-  console.log('something went wrong. Here\'s your error: ', signOutError)
+  // console.log('something went wrong. Here\'s your error: ', signOutError)
 }
 
 const createNewGameSuccess = function (createNewGameResponse) {
-  console.log('response is ', createNewGameResponse)
   store.game = createNewGameResponse.game
   $('.game').show()
   $('.start-game').hide()
   $('#game-info').hide()
+  $('#change-pw-error').hide()
+  $('#change-pw-success-message').hide()
 }
 
 const createNewGameError = function (createNewGameError) {
-  console.log('something went wrong. Here\'s your error: ', createNewGameError)
+  // console.log('something went wrong. Here\'s your error: ', createNewGameError)
 }
 
 const getGameInfoSuccess = function (getGameInfoSuccess) {
@@ -79,7 +90,7 @@ const getGameInfoSuccess = function (getGameInfoSuccess) {
 }
 
 const getGameInfoError = function (getGameInfoError) {
-  console.log('something went wrong. Here\'s your error: ', getGameInfoError)
+  // console.log('something went wrong. Here\'s your error: ', getGameInfoError)
 }
 
 module.exports = {
