@@ -26,6 +26,8 @@ const signInSuccess = function (signInResponse) {
   $('.nav-sign-in').hide()
   $('#change-password').show()
   $('#sign-out').show()
+  $('#player-email').html(store.user.email)
+  // $('#games-played-info').html(store.playedGames.games.length)
 }
 
 const signInError = function (signInError) {
@@ -52,7 +54,6 @@ const signOutSuccess = function (signOutResponse) {
   console.log('you were successfully signed out')
   delete store.user
   console.log('store after sign out is ', store)
-  location.reload()
   $('#sign-out-success-message').show()
 }
 
@@ -65,10 +66,20 @@ const createNewGameSuccess = function (createNewGameResponse) {
   store.game = createNewGameResponse.game
   $('.game').show()
   $('.start-game').hide()
+  $('#game-info').hide()
 }
 
 const createNewGameError = function (createNewGameError) {
   console.log('something went wrong. Here\'s your error: ', createNewGameError)
+}
+
+const getGameInfoSuccess = function (getGameInfoSuccess) {
+  $('#game-info').show()
+  $('#game-info').html(`Player One ID: ${getGameInfoSuccess.game.player_x.id}<br>Game ID: ${getGameInfoSuccess.game.id}<br>Signed In As: ${getGameInfoSuccess.game.player_x.email}`)
+}
+
+const getGameInfoError = function (getGameInfoError) {
+  console.log('something went wrong. Here\'s your error: ', getGameInfoError)
 }
 
 module.exports = {
@@ -81,5 +92,7 @@ module.exports = {
   signOutSuccess,
   signOutError,
   createNewGameSuccess,
-  createNewGameError
+  createNewGameError,
+  getGameInfoSuccess,
+  getGameInfoError
 }

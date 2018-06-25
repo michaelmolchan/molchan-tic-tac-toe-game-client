@@ -62,7 +62,7 @@
             <h2 id="sign-in-success-message">You have successfully signed in!</h2>
             <h3 id="change-pw-success-message">Your password has been updated!</h3>
             <div class="btn-center">
-              <button type="button" class="btn btn-success btn-lg btn-custom" id="start-new-game"><span class="glyphicon glyphicon-plus"></span> Start New Game</button>
+              <button type="button" class="btn btn-success btn-lg btn-custom" id="start-new-game-1"><span class="glyphicon glyphicon-plus"></span> Start New Game</button>
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@
 
           <!-- Buttons -->
           <div class="buttons">
-            <button class="btn btn-warning btn-sm" id="reset-board-1">RESET BOARD</button>
+            <button class="btn btn-success btn-sm" id="start-new-game-2"><span class="glyphicon glyphicon-plus"></span> Start New Game</button>
           </div>
 
         </div>
@@ -124,11 +124,14 @@
 
           <!-- Scoreboard -->
           <div class="scoreboard">
-              <h2>SCOREBOARD:</h2>
-              <h3>Player One ( X ) - 0 Wins</h3>
-              <h3>Player Two ( O ) - 0 Wins</h3>
+              <h2>Now Playing:</h2>
+              <h3 id="player-email"></h3>
+              <h3 id="game-info"></h3>
               <div class="buttons">
-                <button class="btn btn-info btn-lg" id="reset-board-2">RESET BOARD</button>
+                <button class="btn btn-info btn-lg" id="get-game-info">GET GAME INFO</button>
+              </div>
+              <div class="buttons">
+                <button class="btn btn-info btn-lg" id="reset-board">RESET BOARD</button>
               </div>
               <div class="game-result"></div>
               <div class="game-over-alert"></div>

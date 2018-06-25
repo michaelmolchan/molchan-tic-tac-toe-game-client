@@ -50,10 +50,19 @@ const onCreateNewGame = function (event) {
     .catch(authUi.createNewGameError)
 }
 
+const onGetGameInfo = function (event) {
+  event.preventDefault()
+  const info = getFormFields(event.target)
+  authApi.getGameInfo(info)
+    .then(authUi.getGameInfoSuccess)
+    .catch(authUi.getGameInfoError)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
-  onCreateNewGame
+  onCreateNewGame,
+  onGetGameInfo
 }
